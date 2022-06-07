@@ -2,24 +2,24 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-
+// Component for editing Recipe
 const EditRecipe = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);
     const { register, handleSubmit, reset } = useForm()
 
-    // 3. Create out useEffect function
+    // useEffect function for fetching from /reecipes site + id
     useEffect(() => {
         fetch("http://localhost:3001/recipes/" + id)
             .then(response => response.json())
-            // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => setRecipe(data))
     }, [])
     useEffect(() => {
         reset(recipe)
     }, [recipe])
 
+    // Function for editing recipe by method PUT
     function onFormSubmit(recipe) {
         fetch('http://localhost:3001/recipes/' + id, {
             method: 'PUT',
@@ -44,11 +44,9 @@ const EditRecipe = () => {
                     style={{ resize: "none" }}
                     {...register('body')} required>
                 </textarea>
-
                 <label>Recept tillagd av</label>
                 <select
-                    {...register('chef')}
-                >
+                    {...register('chef')}>
                     <option value="Carlos">Carlos</option>
                     <option value="Lina">Lina</option>
                     <option value="Ana">Ana</option>

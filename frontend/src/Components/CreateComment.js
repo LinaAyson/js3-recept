@@ -1,24 +1,20 @@
-import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 // Component for creating comments 
 const CreateComment = () => {
     const navigate = useNavigate();
-    const { register, handleSubmit, reset } = useForm()
+    // UseForm custom hook for managing form
+    const { register, handleSubmit } = useForm()
     const { id } = useParams();
-
-    /**
-     * 
-     * @param {*} comment 
-     * 
-     */
+    // Function for posting comment
     function onFormSubmit(comment) {
         fetch('http://localhost:3001/comments/', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(comment)
         }).then(() => {
+            // after posting comment -> then reload window
             window.location.reload();
         })
     }
@@ -36,11 +32,11 @@ const CreateComment = () => {
                     style={{ resize: "none" }}
                     {...register('body')} required>
                 </textarea>
+                {/* Inputtype hidden with id value and register recipeId */}
                 <input type="hidden" value={id} {...register('recipeId')} />
                 <button className="btn comment-btn">Lägg till</button>
             </form>
         </div>
     );
 }
-
 export default CreateComment;

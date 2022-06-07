@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-
+// Component for creating Recipe
 const CreateRecipe = () => {
     const navigate = useNavigate();
-    const [recipe, setRecipe] = useState(null);
-    const { register, handleSubmit, reset } = useForm()
-
+    const { register, handleSubmit } = useForm()
+    // Function for posting recipe 
     function onFormSubmit(recipe) {
         fetch('http://localhost:3001/recipes/', {
             method: 'POST',
@@ -32,11 +30,9 @@ const CreateRecipe = () => {
                     style={{ resize: "none" }}
                     {...register('body')} required>
                 </textarea>
-
                 <label>Recept tillagd av</label>
                 <select
-                    {...register('chef')}
-                >
+                    {...register('chef')}>
                     <option value="Carlos">Carlos</option>
                     <option value="Lina">Lina</option>
                     <option value="Ana">Ana</option>

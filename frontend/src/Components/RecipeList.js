@@ -4,7 +4,7 @@ import useFetch from "../UseFetch";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-
+// Component for list of all recipes
 const RecipeList = () => {
     const [query, setQuery] = useState("")
     const { data: recipes, error, isPending } = useFetch('http://localhost:3001/recipes?name_like=' + query);
