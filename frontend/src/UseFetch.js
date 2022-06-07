@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
-
+/**
+ * Function to handle API request 
+ * @param {*} url 
+ * @returns    data, isPending, error 
+ */
 
 const useFetch = (url) => {
     const [data, setData] = useState(null);

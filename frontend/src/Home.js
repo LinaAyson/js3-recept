@@ -1,21 +1,12 @@
-import RecipeList from "./RecipeList";
-import UseFetch from "./UseFetch";
 import React from "react";
-
-
+import RecipeList from "./Components/RecipeList";
+// Home component that shows Recipelist 
 const Home = () => {
-    const { data: recipes, isPending, error } = UseFetch('http://localhost:3002/recipes');
     return (
         <div className="home">
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
-            {recipes && <RecipeList recipes={recipes} title="Alla recept" />}
-
+            <RecipeList />
         </div>
-
-
     );
 }
-
 
 export default Home;

@@ -1,0 +1,17 @@
+
+/* CSS file for footer */
+.footer{
+    margin-top: 1rem;
+    background-color: #fa9084;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+  }
+  .footer-icons {
+    text-align: center;
+    font-size: 2rem;
+    display: flex; 
+    justify-content: space-evenly; 
+    padding: 6px;
+  }

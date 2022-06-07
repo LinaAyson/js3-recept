@@ -5,6 +5,22 @@
   margin: 0;
   font-family: "Quicksand";
   color: #333;
+ 
+}
+/* Media query for navbar */
+@media (max-width: 640px) {
+  .navbar {
+    text-align: center;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar .links {
+    flex-direction: column;
+  }
+  .navbar .links {
+    margin: 0.8em 0;
+  }
 }
 .navbar {
   padding: 20px;
@@ -12,10 +28,10 @@
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
-  background-color: #FFC55C;
+  background-color: #200D0D;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #fa9084;
 }
 .navbar .links {
 margin-left: auto;
@@ -25,39 +41,50 @@ margin-left: auto;
   text-decoration: none;
   padding: 6px;
 }
-.navbar a:hover {
-color: #f1356d;
-}
+
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+  min-height: 600px;
 }
 /* CSS for meal-previews */
 .recipe-prev {
-  paddoing: 10px 16px;
-  margin: 20px 0;
+  padding: 10px 16px;
+  margin: 0 0;
   border-bottom: 1px solid #fafafa;
+  font-weight: 500;
 }
 .recipe-prev:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  background-color: #FFECEA;
+  border-radius: 10px;
 }
 .recipe-prev h2 {
   font-size: 20px;
-  color: orange;
+  color: #fa9084;
   margin-bottom: 8px;
 }
 .recipe-prev a {
   text-decoration: none;
 }
-  /*Recipe details*/
+  /*Recipe info*/
 .recipe-details h2 {
   font-size: 20px;
   color: #f1356d;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 .recipe-details div {
-  margin: 20px 0;
+  margin: 12px;
+  white-space: pre-line;
+}
+.recipe-details {
+  background-color: #FFECEA;
+  padding: 20px;
+}
+.recipe-details p {
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 /* Add new recipe*/
@@ -72,7 +99,7 @@ display: block;
 }
 .create h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #fa9084;
   margin-bottom: 30px;
 }
 .create input, .create textarea, .create select{
@@ -83,11 +110,145 @@ display: block;
   box-sizing: border-box;
   display: block;
 }
-.create button {
-  background: #f1356d;
+/* Search Icon */
+.icon {
+  text-align: center;
+  font-size: 2rem;
+}
+.search-bar {
+  font-size: 1.5rem;
+  display: flex;
+  alight-items: center;
+  margin: 0 0 0.9rem 0;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #F6F6F6 ;
+  border-radius: 5px;
+  outline-color: grey;  
+}
+/* All recipes */
+.all-recipes {
+  box-sizing: border-box;
+  width: 100%;
+  border: solid #F6F6F6 2px;
+  padding: 1px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  background-color:  #FDF2E9;
+
+}
+.create {
+  box-sizing: border-box;
+  width: 100%;
+  border: dotted #fa9084 2px;
+  padding: 30px;
+  background-color: #FDF2E9;
+}
+.btn {
+  background: #fa9084;
   color: #fff;
   border: 0;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+.delete-btn{
+  background: #f44336;
+  background-image: linear-gradient(to right, #f55549, #f44336);
+}
+.edit-btn {
+  background: #ffb554;
+  background-image: linear-gradient(to right, #ffb554, #ed9e37);
+}
+.save-btn {
+  background: #01BD6F;
+  font-size: 1rem;
+  width: 50%;
+}
+.comment-btn {
+  background: #01BD6F;
+  font-size: 1rem;
+  background: #fa9084;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+.d-flex {
+display:flex;
+}
+.justify-content-center {
+justify-content: center;
+}
+
+/* Comments style */
+.comments {
+  box-sizing: border-box;
+  width: 100%;
+  text-align:left ;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #FDF2E9;
+}
+.comments label {
+  font-weight: 500;
+}
+.comments input, .comments textarea, .comments select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.comments h4 {
+  color:  #fa9084;
+  background-color: #FDF2E9;
+  text-align: center;
+  padding: 3px;
+} 
+.view-comments h4{
+  color: #fa9084;
+  padding: 2px;
+}
+.view-comments p {
+  margin: 1px 0 0 0;
+  font-weight: 400;
+}
+.com {
+  background-color: #FDF2E9;
+  padding: px;
+}
+.view-comments b { 
+  color: #fa9084;
+}
+/* Edit Recipe */
+.edit-recipe  {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #FDF2E9;
+  border: 10px solid #ffb554;
+  padding:20px;
+}
+.edit-recipe label{
+text-align: left;
+display: block;
+}
+.edit-recipe  h2 {
+  font-size: 20px;
+  color: #fa9084;
+  margin-bottom: 30px;
+}
+.edit-recipe input, .edit-recipe textarea, .edit-recipe select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+
 }
